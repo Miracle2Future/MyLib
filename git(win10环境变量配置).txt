@@ -1,0 +1,52 @@
+一、点击高级系统设置 --> 环境变量 --> 选择用户变量或系统变量中的Path,点击编辑
+D:\CodeStation\Git\bin
+D:\CodeStation\Git\mingw64\bin
+D:\CodeStation\Git\mingw64\libexec\git-core
+
+二、附加:配置全局用户名和邮箱
+
+桌面空白右键 --> 选择Git Bash Here
+配置用户名:
+git config --global user.name "Miracle2Future"
+配置邮箱：
+git config --global user.email "783979227@qq.com"
+
+三、版本库
+1、初始化创建版本库
+在一个合适的地方，创建一个空目录，cd进入该目录，使用git init 命令把这个目录变成Git可以管理的仓库
+注：千万不要手动修改.git目录里的文件
+2、把文件添加到版本库
+在仓库目录中创建一个sunck.txt文件
+把文件添加到仓库 git add sunck.txt
+把文件提交到仓库 git commit -m "注释信息"
+
+四、远程仓库
+1、创建SSH Key
+黑屏终端输入ssh-keygen -t rsa -C "783979227@qq.com"
+输入GitHub注册密码（注意：密文输入，黑屏终端上不会显示密码）
+.ssh
+id_rsa 私钥
+id_rsa.pub 公钥
+more id_rsa.pub win10命令行查看公钥
+登录GitHub官网，在设置添加公钥（去掉邮箱地址）
+测试密钥是否通过命令：ssh -T git@github.com
+
+2、创建远程仓库
+
+3、关联远程仓库
+git remote add origin 远程仓库地址
+注意：执行命令需要在本地仓库路径下执行,gitLib是本地仓库
+eg:D:\CodeStation\GithubStation\gitLib>git remote add origin git@github.com:Miracle2Future/MyLib.git
+
+4、删除关联
+git remote rm origin
+
+5、推送本地库内容到远程库
+git push origin master
+注意：需要先把远程库内容拉到本地，否则会报错。忽略特殊文件 .gitignore
+
+6、拉取远程库内容到本地库
+git pull origin master
+
+7、从远程库克隆
+git clone 远程库地址
